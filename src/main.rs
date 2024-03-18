@@ -20,8 +20,6 @@ fn main() {
 #[derive(AsBindGroup, Debug, Clone, Asset, TypePath)]
 struct SdfCircle {
     #[uniform(0)]
-    radius: f32,
-    #[uniform(1)]
     color: Color,
 }
 
@@ -41,7 +39,6 @@ fn setup(
     commands.spawn(MaterialMesh2dBundle {
         mesh: Mesh2dHandle(meshes.add(Rectangle::new(100.0, 100.0))),
         material: materials.add(SdfCircle {
-            radius: 50.0,
             color: Color::rgb_linear(1., 1., 0.),
         }),
         ..Default::default()
